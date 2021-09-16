@@ -1,0 +1,22 @@
+create table Artists
+(
+	Id SERIAL primary key not null,
+	NameAlias character varying(20)  not null
+);
+
+create table Albums
+(
+	Id SERIAL primary key not null,
+	AlbumName character varying(20)  not null,
+	year INT not null,
+	ArtistsId INTEGER references  Artists (Id)
+);
+
+create table tracks
+(
+	Id SERIAL primary key not null,
+	TrackName character varying(20) not null,
+	TrackNumber INT not null,
+	Duration character varying(20) not null,
+	AlbumId INTEGER references Albums (Id)
+);
